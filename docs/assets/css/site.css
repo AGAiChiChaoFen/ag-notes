@@ -1,0 +1,115 @@
+        /* --- 2. 新增：暗黑模式样式 (Dark Mode Styles) --- */
+        :root {
+            --dark-bg: #1a1a1a;
+            --dark-text: #c4c4c4;
+            --dark-sidebar: #141414;
+            --dark-code-bg: #2b2b2b;
+            --dark-border: #333;
+            --theme-color: #42b983;
+        }
+
+        /* 基础反色 */
+        body.dark-mode {
+            background-color: var(--dark-bg);
+            color: var(--dark-text);
+        }
+
+        /* 侧边栏适配 */
+        body.dark-mode .sidebar {
+            background-color: var(--dark-sidebar);
+            border-right: 1px solid var(--dark-border);
+            color: var(--dark-text);
+        }
+        body.dark-mode .sidebar-nav li a {
+            color: #999;
+        }
+        body.dark-mode .sidebar-nav li.active > a {
+            color: var(--theme-color);
+            border-right: 2px solid var(--theme-color);
+        }
+
+        /* 代码块适配 */
+        body.dark-mode pre {
+            background-color: var(--dark-code-bg) !important;
+        }
+        body.dark-mode code {
+            background-color: var(--dark-code-bg) !important;
+            color: #e0e0e0 !important;
+        }
+        body.dark-mode .markdown-section code {
+            color: #f08d49;
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        /* 标题和引用适配 */
+        body.dark-mode h1, body.dark-mode h2, body.dark-mode h3, body.dark-mode h4 {
+            color: #e0e0e0;
+        }
+        body.dark-mode blockquote {
+            color: #999;
+            background: rgba(255,255,255,0.05);
+            border-left-color: var(--theme-color);
+        }
+
+        /* 表格适配 */
+        body.dark-mode .markdown-section tr:nth-child(2n) {
+            background-color: rgba(255,255,255,0.03);
+        }
+        body.dark-mode .markdown-section td, 
+        body.dark-mode .markdown-section th {
+            border-color: var(--dark-border);
+        }
+
+        /* Mermaid 图表适配 (颜色反转) */
+        body.dark-mode .mermaid {
+            filter: invert(1) hue-rotate(180deg);
+        }
+
+        /* Giscus 容器边框适配 */
+        body.dark-mode .giscus-container {
+            border-top: 1px solid var(--dark-border);
+        }
+
+        /* --- 3. 新增：侧边栏开关按钮样式 --- */
+        .sidebar-toggle-btn {
+            cursor: pointer;
+            display: block;
+            text-align: center;
+            padding: 10px 0;
+            margin: 0 15px 10px 15px;
+            font-weight: bold;
+            font-size: 14px;
+            border-radius: 4px;
+            background-color: rgba(0,0,0,0.05);
+            color: #505d6b;
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: all 0.3s;
+        }
+        body.dark-mode .sidebar-toggle-btn {
+            background-color: rgba(255,255,255,0.1);
+            color: #ccc;
+            border: 1px solid #444;
+        }
+        .sidebar-toggle-btn:hover {
+            background-color: var(--theme-color);
+            color: white;
+        }
+
+        /* 深色模式下修正 docsify 自带 .sidebar-toggle (左下角汉堡) 的浅色背景 */
+        /* vue.css 默认写死 background-color: hsla(0,0%,100%,.8)，并在小屏折叠态
+           (body.close .sidebar-toggle) 下回写同色，这里一并覆盖 */
+        body.dark-mode .sidebar-toggle,
+        body.dark-mode.close .sidebar-toggle {
+            background-color: transparent;
+        }
+    
+.markdown-section { max-width: 850px; }
+.site-footer { margin-top: 64px; padding-top: 20px; border-top: 1px solid #eee; font-size: 12px; color: #777; }
+.sidebar-toggle-btn { width: calc(100% - 30px); }
+body.dark-mode .search input { color: #ddd; background: #141414; }
+body.dark-mode .search .matching-post { color: #ddd; }
+body.dark-mode .search a { color: #aaa; }
+body.dark-mode .search .search-keyword { color: #42b983; }
+body.dark-mode .pagination-item-title { color: #ddd; }
+body.dark-mode .site-footer { border-color: #333; }
+:focus-visible { outline: 2px solid #42b983; outline-offset: 3px; }
