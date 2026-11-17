@@ -1,8 +1,0 @@
-{
-  "upstream": "https://github.com/datawhalechina/hello-agents",
-  "branch": "main",
-  "download_date": "2026-11-17",
-  "archive_url": "https://codeload.github.com/datawhalechina/hello-agents/zip/refs/heads/main",
-  "acquisition": "official source ZIP; no Git history",
-  "license": "CC BY-NC-SA 4.0"
-}
